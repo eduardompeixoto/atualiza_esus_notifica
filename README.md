@@ -3,7 +3,7 @@
 
 <!-- badges: start -->
 <!-- badges: end -->
-![](https://raw.githubusercontent.com/cievs-ses-rj/cievs-ses-rj/main/logo/logo_cievs.png)
+![](https://raw.githubusercontent.com/cievs-ses-rj/cievs-ses-rj/main/logo/logo_cievs_v4.png)
 
 O objetivo do pacote `atualiza` é realizar atualizações de planilhas necessárias para as análises do CIEVS da SES do Rio de Janeiro.
 
