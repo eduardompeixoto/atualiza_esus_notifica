@@ -63,7 +63,7 @@ for (days_back in 1:29) {
 }
 df<-combined_data
 writexl::write_xlsx(df, "inst/planilha.xlsx")
-# write.csv(df, "inst/tabela_teste.csv")
+write.csv(df, "inst/tabela_teste.csv")
 
 # escrever a mensagem de commit
 commit_message <-
