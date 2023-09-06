@@ -9,7 +9,7 @@
 on:
   schedule:
 
-    - cron:  '01 00 */1 * *'
+    -  cron: '5 10,11,12,13 * * *'
 
   workflow_dispatch:
     branches: [ "main" ]
