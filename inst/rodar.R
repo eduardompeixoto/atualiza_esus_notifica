@@ -61,8 +61,8 @@ for (days_back in 1:7) {
   combined_data <- bind_rows(combined_data, fetched_data)
 }
 df<-bind_rows(combined_data)
-
-write.csv2(df, "planilha.csv",append = T)
+df[ , colnames(df)] <- lapply(df[ , colnames(df)], as.character)
+write.csv2(df, paste( Sys.Date(),'.csv',sep=""),fileEncoding = "WINDOWS-1252" )
 
 # escrever a mensagem de commit
 commit_message <-
