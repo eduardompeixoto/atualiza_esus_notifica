@@ -12,6 +12,7 @@ library(jsonlite)
 library(dplyr)
 library(tidyverse)
 library(purrr)
+library(googlesheets4)
 
 # Define the base URL for the Elasticsearch API
 url <- "https://elasticsearch-saps.saude.gov.br/desc-esus-notifica-estado-rj/_search"
