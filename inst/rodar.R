@@ -20,8 +20,8 @@ user <- "user-public-notificacoes"
 senha <- "Za4qNXdyQNSa9YaA"
 
 # Encode credentials in base64
-credenciais_base64 <- paste0(user, ":", senha)
-credenciais_base64 <- base64enc::base64encode(charToRaw(credenciais_base64))
+credenciais_base64 <- enc2utf8("dXNlci1wdWJsaWMtbm90aWZpY2Fjb2VzOlphNHFOWGR5UU5TYTlZYUE=")
+
 
 # Define headers
 headers <- add_headers(
