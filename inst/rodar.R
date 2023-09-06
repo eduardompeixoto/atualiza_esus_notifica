@@ -61,7 +61,7 @@ for (days_back in 1:29) {
   fetched_data <- fetch_data(query, url, headers)
   combined_data <- bind_rows(combined_data, fetched_data)
 }
-
+df<-combined_data
 writexl::write_xlsx(df, "inst/planilha.xlsx")
 # write.csv(df, "inst/tabela_teste.csv")
 
