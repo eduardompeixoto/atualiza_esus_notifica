@@ -14,7 +14,7 @@ on:
 
 jobs:
   render:
-    name: updategodata
+    name: update_diario_esus_notifica
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
