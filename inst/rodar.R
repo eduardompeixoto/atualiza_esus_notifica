@@ -1,4 +1,3 @@
-pkgload::load_all()
 # pak::pkg_install("WorldHealthOrganization/godataR")
 
 # df <- atualiza:::update_godata()
@@ -48,7 +47,7 @@ fetch_data <- function(query, url, headers) {
 combined_data <- data.frame()
 
 # Loop to fetch data for different date ranges and combine them using bind_rows
-for (days_back in 1:30) {
+for (days_back in 1:7) {
   query <- sprintf('{
     "size": 10000,
     "query": {
@@ -61,9 +60,9 @@ for (days_back in 1:30) {
   fetched_data <- fetch_data(query, url, headers)
   combined_data <- bind_rows(combined_data, fetched_data)
 }
-df<-combined_data
-writexl::write_xlsx(df, "inst/planilha.xlsx")
-write.csv2(df, "inst/planilha.csv")
+df<-bind_rows(combined_data)
+
+write.csv2(df, "planilha.csv",append = T)
 
 # escrever a mensagem de commit
 commit_message <-
