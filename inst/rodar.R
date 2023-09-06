@@ -62,4 +62,4 @@ for (days_back in 1:7) {
 }
 df<-bind_rows(combined_data)
 
-save(df, file="df.RData")
+save(df, file="inst/df.RData")
