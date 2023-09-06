@@ -1,5 +1,5 @@
 # pak::pkg_install("WorldHealthOrganization/godataR")
-
+setwd("~/")
 # df <- atualiza:::update_godata()
 # Install the necessary packages if not already installed
 required_packages <- c("httr", "jsonlite", "dplyr","purrr","tidyverse")
@@ -47,7 +47,7 @@ fetch_data <- function(query, url, headers) {
 combined_data <- data.frame()
 
 # Loop to fetch data for different date ranges and combine them using bind_rows
-for (days_back in 1:7) {
+for (days_back in 1:2) {
   query <- sprintf('{
     "size": 10000,
     "query": {
