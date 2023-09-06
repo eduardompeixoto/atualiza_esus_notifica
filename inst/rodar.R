@@ -1,5 +1,5 @@
 # pak::pkg_install("WorldHealthOrganization/godataR")
-setwd("~/")
+#setwd("~/")
 # df <- atualiza:::update_godata()
 # Install the necessary packages if not already installed
 required_packages <- c("httr", "jsonlite", "dplyr","purrr","tidyverse")
@@ -62,4 +62,6 @@ for (days_back in 1:2) {
 }
 df<-bind_rows(combined_data)
 
-save(df, file="inst/df.RData")
+googlesheets4::sheet_append("15QlNYPZ3W0XAk9kxryNWNbTtoucyWfRPantzCDvABTI",df)
+
+
