@@ -2,7 +2,7 @@
 #setwd("~/")
 # df <- atualiza:::update_godata()
 # Install the necessary packages if not already installed
-required_packages <- c("httr", "jsonlite", "dplyr","purrr","tidyverse")
+required_packages <- c("httr", "jsonlite", "dplyr","purrr","tidyverse","googlesheets4")
 new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
 
@@ -61,7 +61,7 @@ for (days_back in 1:2) {
   combined_data <- bind_rows(combined_data, fetched_data)
 }
 df<-bind_rows(combined_data)
-
+gs4_deauth()
 googlesheets4::sheet_append("15QlNYPZ3W0XAk9kxryNWNbTtoucyWfRPantzCDvABTI",df)
 
 
