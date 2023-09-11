@@ -499,8 +499,5 @@ r$raca2<-r$racaCor
 r$raca2[r$racaCor!="1"]<-"Não branca"
 r$raca2[r$racaCor=="1"]<-"Branca"
 
-require(gtsummary)
-gtsummary::tbl_summary(r,by="confirmado") %>% add_p()
-sjPlot::tab_model(glm(confirmado~capital+idade+raca2+garganta+coriza+febre+recebeuVacina,family = "binomial",data=r))
-sjPlot::tab_model(glm(confirmado~febre+estrangeiro,family = "binomial",data=r))
+
 save(r,file="esus.RData")
