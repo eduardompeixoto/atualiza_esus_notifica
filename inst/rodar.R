@@ -499,4 +499,4 @@ r$raca2<-r$racaCor
 r$raca2[r$racaCor!="1"]<-"Não branca"
 r$raca2[r$racaCor=="1"]<-"Branca"
 
-googlesheets4::sheet_append(data=as.data.frame(r),"1_k5txxupL-id-w-Vhf3di_vFYv8TUJOKvL6vmF7l7Xc")
+save(r,file="esus.RData")
