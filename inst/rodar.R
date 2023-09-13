@@ -268,7 +268,7 @@ k<-subset(junto,junto$dt_coleta>= (Sys.Date()-7))
 junto<-k
 junto$dt_coleta<-format(junto$dt_coleta,"%d/%m/%Y")
 junto[is.na(junto)]<-0
-xlsx::write.xlsx2(junto,file = stringr::str_replace_all(paste("antigeno_",format(Sys.Date(),"%d%m%Y"),".xlsx")," ","") ,sep="",collapse="",row.names = F)
+# xlsx::write.xlsx2(junto,file = stringr::str_replace_all(paste("antigeno_",format(Sys.Date(),"%d%m%Y"),".xlsx")," ","") ,sep="",collapse="",row.names = F)
 
 dataset<-total
 dataset$testes<-NULL
@@ -500,7 +500,7 @@ r$raca2[r$racaCor!="1"]<-"Não branca"
 r$raca2[r$racaCor=="1"]<-"Branca"
 
 # save(r,file="inst/esus.RData")
-writexl::write_xlsx(junto, "inst/planilha.xlsx")
+writexl::write_xlsx(junto, "inst/planilhax.xlsx")
 
 # escrever a mensagem de commit
 commit_message <- paste0("", Sys.time())
