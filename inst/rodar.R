@@ -47,7 +47,7 @@ data_frames <- lapply(1:7, function(days_back) {
       }
     }
   }', days_back)
-  
+
   fetch_data(query, url, headers)
 })
 
@@ -167,7 +167,7 @@ junto$cod_muni<-NA
 
 colnames(junto)<-c('dt_coleta', 'municipio', 'Total_Exames',	'Positivos','cod_muni')
 
-junto<-subset(junto,select=c(municipio,	cod_muni,	dt_coleta,	Positivos,	Total_Exames))                   
+junto<-subset(junto,select=c(municipio,	cod_muni,	dt_coleta,	Positivos,	Total_Exames))
 
 junto$cod_muni[junto$municipio=="Angra dos Reis"]<-330010
 junto$cod_muni[junto$municipio=="Aperibé"]<-330015
@@ -499,4 +499,4 @@ r$raca2<-r$racaCor
 r$raca2[r$racaCor!="1"]<-"Não branca"
 r$raca2[r$racaCor=="1"]<-"Branca"
 
-save(r,file="esus.RData")
+save(r,file="inst/esus.RData")
