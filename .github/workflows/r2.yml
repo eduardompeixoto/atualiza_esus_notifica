@@ -40,6 +40,8 @@ jobs:
 
       - name: Commit and Push
         run: |
-          git config --local user.email "eduardo.mesquita.peixoto@gmail.com"
-          git config --local user.name "GitHub Action"
-          git push
+          git config --local user.name "$GITHUB_ACTOR"
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git add inst/planilha.xlsx
+          git commit -F mensagem-comit.txt || echo "No changes to commit"
+          git push origin || echo "No changes to commit"
