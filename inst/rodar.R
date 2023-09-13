@@ -500,3 +500,10 @@ r$raca2[r$racaCor!="1"]<-"Não branca"
 r$raca2[r$racaCor=="1"]<-"Branca"
 
 save(r,file="inst/esus.RData")
+
+
+# escrever a mensagem de commit
+commit_message <- paste0("", Sys.time())
+
+# salvar a mensagem de commit
+writeLines(commit_message, "mensagem-comit.txt")
