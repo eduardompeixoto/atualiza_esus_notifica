@@ -499,8 +499,8 @@ r$raca2<-r$racaCor
 r$raca2[r$racaCor!="1"]<-"Não branca"
 r$raca2[r$racaCor=="1"]<-"Branca"
 
-save(r,file="inst/esus.RData")
-
+# save(r,file="inst/esus.RData")
+writexl::write_xlsx(junto, "inst/planilha.xlsx")
 
 # escrever a mensagem de commit
 commit_message <- paste0("", Sys.time())
