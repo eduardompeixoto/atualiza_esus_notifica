@@ -1,6 +1,6 @@
 pkgload::load_all()
 
-df_esus <- atualiza_esus:::esus()
+df_esus <- atualiza_esus_novo:::esus()
 
 writexl::write_xlsx(df_esus, "inst/planilha_esus.xlsx")
 
