@@ -15,9 +15,11 @@ on:
 jobs:
   render:
     name: update_diario_esus_notifica
+
     runs-on: ubuntu-latest
+
     env:
-      GITHUB_PAT: ${{ secrets.GIT }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - uses: actions/checkout@v3
@@ -36,12 +38,12 @@ jobs:
 
       - name: Execute Script
         run: |
-          Rscript "inst/rodar.R"
+          Rscript "inst/rodar_esus.R"
 
       - name: Commit and Push
         run: |
           git config --local user.name "$GITHUB_ACTOR"
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
-          git add inst/planilhax.xlsx
+          git add inst/planilha_esus.xlsx
           git commit -F mensagem-comit.txt || echo "No changes to commit"
           git push origin || echo "No changes to commit"
