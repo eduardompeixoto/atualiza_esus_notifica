@@ -41,15 +41,15 @@ r <- ovun.sample(confirmado~., data=r, method = "over")$data
 
 
 r<-r %>% mutate(  idade= case_when(idade <= 1 ~ "Até 1",
-                                   idade > 1 & idade < 4 ~ "1-4",
-                                   idade >= 5 & idade < 9 ~ "5-9",
-                                   idade >= 10 & idade < 19 ~ "10-19",
-                                   idade >= 20 & idade < 29 ~ "20-29",
-                                   idade >= 30 & idade < 39 ~ "30-39",
-                                   idade >= 40 & idade < 49 ~ "40-49",
-                                   idade >= 50 & idade < 59 ~ "50-59",
-                                   idade >= 60 & idade < 69 ~ "60-69",
-                                   idade >= 70 & idade < 79 ~ "70-79",
+                                   idade > 1 & idade < 5 ~ "1-4",
+                                   idade >= 5 & idade < 10 ~ "5-9",
+                                   idade >= 10 & idade < 20 ~ "10-19",
+                                   idade >= 20 & idade < 30 ~ "20-29",
+                                   idade >= 30 & idade < 40 ~ "30-39",
+                                   idade >= 40 & idade < 50 ~ "40-49",
+                                   idade >= 50 & idade < 60 ~ "50-59",
+                                   idade >= 60 & idade < 70 ~ "60-69",
+                                   idade >= 70 & idade < 80 ~ "70-79",
                                    idade >= 80 ~ "80+"))
 
 
