@@ -82,40 +82,21 @@ colnames(total)<-c('tipoTeste1',
                    'tipoTeste2',
                    'tipoTeste3',                   'tipoTeste4',
                    
-'tipoTeste5','tipoTeste6','tipoTeste7','tipoTeste8','tipoTeste9','tipoTeste10','tipoTeste11',
                    'dataTeste1',
                    'dataTeste2',
                    'dataTeste3',
                                       'dataTeste4',
-                    'dataTeste5',
-                   'dataTeste6',
-                   'dataTeste7', 'dataTeste8',
-                    'dataTeste9',
-                   'dataTeste10',
-                   'dataTeste11',
-
-
+                  
                    'resultado1',
                    'resultado2',
                    'resultado3',                   'resultado4',
 
-                   'resultado5',
-                   'resultado6',
-                   'resultado7',                   'resultado8',
-                   'resultado9',
-                   'resultado10',
-                   'resultado11',               
+                  
 
                    'estado1',
                    'estado2',
                    'estado3',                   'estado4',
-                   'estado5',
-                   'estado6',
-                   'estado7',  
-                   'estado8',
-                   'estado9',
-                   'estado10',                     'estado11',  
-
+                   
 
                    'sexo','outrosSintomas','codigoEstrategiaCovid','@timestamp','dataTeste','dataSegundaReforcoDose','tipoTeste','resultadoTesteSorologicoIgA','condicoes','resultadoTeste','loteSegundaReforcoDose','@version','dataPrimeiraDose','codigoContemComunidadeTradicional','dataSegundaDose','cbo','outroLocalRealizacaoTestagem','dataEncerramento','idCollection','qualAntiviral','outrasCondicoes','estadoNotificacao','evolucaoCaso','estadoTeste','dataReforcoDose','codigoBuscaAtivaAssintomatico','outroBuscaAtivaAssintomatico','municipio','resultadoTesteSorologicoIgG','codigoDosesVacina','classificacaoFinal','estado','municipioIBGE','estadoIBGE','sintomas','id','codigoQualAntiviral','laboratorioSegundaReforcoDose','dataInicioSintomas','outroAntiviral','resultadoTesteSorologicoIgM','idade','codigoTriagemPopulacaoEspecifica','testes','estrangeiro','profissionalSaude','dataTesteSorologico','municipioNotificacaoIBGE','resultadoTesteSorologicoTotais','estadoNotificacaoIBGE','outroTriagemPopulacaoEspecifica','codigoRecebeuVacina','racaCor','tipoTesteSorologico','dataNotificacao','codigoRecebeuAntiviral','registroAtual','dataInicioTratamento','profissionalSeguranca','municipioNotificacao','recebeuAntiviral','codigoLocalRealizacaoTestagem','testes_list','n_testes')
 
