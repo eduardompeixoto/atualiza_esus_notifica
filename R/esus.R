@@ -102,7 +102,7 @@ colnames(total)<-c('tipoTeste1',
                    
                    'resultado1',
                    'resultado2',
-                   'resultado3',                   'resultado4',
+                   'resultado3',                   
                    'resultado4',
                    'resultado5',
                    'resultado6',
@@ -111,7 +111,6 @@ colnames(total)<-c('tipoTeste1',
                    'resultado9',
                    'resultado10',
                    'resultado11',
-                   'resultado12',
                    
                    
                    
