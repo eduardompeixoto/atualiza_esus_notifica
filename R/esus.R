@@ -1,105 +1,4 @@
 esus<-function(){
-
-# Install the necessary packages if not already installed
-required_packages <- c("httr", "jsonlite", "dplyr")
-new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
-if(length(new_packages)) install.packages(new_packages)
-
-# Load libraries
-library(httr)
-library(jsonlite)
-library(dplyr)
-library(stringr)
-
-# Define the base URL for the Elasticsearch API
-url <- "https://elasticsearch-saps.saude.gov.br/desc-esus-notifica-estado-rj/_search"
-
-# Define credentials
-user <- "user-public-notificacoes"
-senha <- "Za4qNXdyQNSa9YaA"
-
-# Encode credentials in base64
-credenciais_base64 <- enc2utf8("dXNlci1wdWJsaWMtbm90aWZpY2Fjb2VzOlphNHFOWGR5UU5TYTlZYUE=")
-
-# Define headers
-headers <- add_headers(
-  Authorization = paste("Basic", credenciais_base64),
-  "Content-Type" = "application/json",
-  Cookie = "ELASTIC-PROD=1635856782.811.5320.80284"
-)
-
-# Function to make API requests and extract data
-fetch_data <- function(query, url, headers) {
-  response <- httr::POST(url, body = query, config = headers)
-  stop_for_status(response)  # Stop execution if response status code is not 200
-  json_data <- content(response)
-  data_frame <- json_data$hits$hits %>%
-    purrr::map_df(function(hit) as.data.frame(t(hit$`_source`)))
-  data_frame <- data_frame %>% mutate(testes_list = list(testes))
-  return(data_frame)
-}
-
-# Loop to fetch data for different date ranges
-data_frames <- lapply(1:45, function(days_back) {
-  query <- sprintf('{
-    "size": 10000,
-    "query": {
-      "match": {
-        "dataNotificacao": "now-%dd/d"
-      }
-    }
-  }', days_back)
-
-  fetch_data(query, url, headers)
-})
-
-a<-bind_rows(data_frames)
-dat<-a
-
-tipoTeste<-str_extract_all(dat$testes, "tipoTeste*(.*?)\\s*,", simplify=T)
-tipoTeste<-data.frame(((tipoTeste)))
-
-dataTeste<-str_extract_all(dat$testes,"dataColetaTeste*(.*?)\\s*,", simplify=T)
-dataTeste<-data.frame(((dataTeste)))
-
-resultadoTeste<-str_extract_all(dat$testes,"resultadoTeste*(.*?)\\s*,", simplify=T)
-resultadoTeste<-data.frame(((resultadoTeste)))
-
-estadoTeste<-str_extract_all(dat$testes,"estadoTeste*(.*?)\\s*,", simplify=T)
-estadoTeste<-data.frame(((estadoTeste)))
-
-total<-NULL
-total<-dplyr::bind_cols(tipoTeste,dataTeste,resultadoTeste,estadoTeste,dat)
-
-total$n_testes<-str_count(total$testes,"tipo")
-total<-as.data.frame(total)
-table(total$n_testes)
-
-
-
-
-colnames(total)<-c('tipoTeste1',
-                   'tipoTeste2',
-                   'tipoTeste3',                   'tipoTeste4',
-                   
-                   'dataTeste1',
-                   'dataTeste2',
-                   'dataTeste3',
-                                      'dataTeste4',
-                  
-                   'resultado1',
-                   'resultado2',
-                   'resultado3',                   'resultado4',
-
-                  
-
-                   'estado1',
-                   'estado2',
-                   'estado3',                   'estado4',
-                   
-
-                   'sexo','outrosSintomas','codigoEstrategiaCovid','@timestamp','dataTeste','dataSegundaReforcoDose','tipoTeste','resultadoTesteSorologicoIgA','condicoes','resultadoTeste','loteSegundaReforcoDose','@version','dataPrimeiraDose','codigoContemComunidadeTradicional','dataSegundaDose','cbo','outroLocalRealizacaoTestagem','dataEncerramento','idCollection','qualAntiviral','outrasCondicoes','estadoNotificacao','evolucaoCaso','estadoTeste','dataReforcoDose','codigoBuscaAtivaAssintomatico','outroBuscaAtivaAssintomatico','municipio','resultadoTesteSorologicoIgG','codigoDosesVacina','classificacaoFinal','estado','municipioIBGE','estadoIBGE','sintomas','id','codigoQualAntiviral','laboratorioSegundaReforcoDose','dataInicioSintomas','outroAntiviral','resultadoTesteSorologicoIgM','idade','codigoTriagemPopulacaoEspecifica','testes','estrangeiro','profissionalSaude','dataTesteSorologico','municipioNotificacaoIBGE','resultadoTesteSorologicoTotais','estadoNotificacaoIBGE','outroTriagemPopulacaoEspecifica','codigoRecebeuVacina','racaCor','tipoTesteSorologico','dataNotificacao','codigoRecebeuAntiviral','registroAtual','dataInicioTratamento','profissionalSeguranca','municipioNotificacao','recebeuAntiviral','codigoLocalRealizacaoTestagem','testes_list','n_testes')
-
 total$n_testes<-as.numeric(total$n_testes)
 
 a1<-subset(total,select = c('tipoTeste1', 'dataTeste1','resultado1','estado1','testes','n_testes','dataNotificacao',"estado","municipio"))
@@ -110,7 +9,7 @@ a2<-subset(a2,a2$n_testes>1)
 
 a3<-subset(total,select = c(tipoTeste3, dataTeste3,resultado3,estado3,testes,n_testes,dataNotificacao,estado,municipio))
 a3<-subset(a3,a3$n_testes>2)
-                  a4<-subset(total,select = c(tipoTeste4, dataTeste4,resultado4,estado4,testes,n_testes,dataNotificacao,estado,municipio))
+a4<-subset(total,select = c(tipoTeste4, dataTeste4,resultado4,estado4,testes,n_testes,dataNotificacao,estado,municipio))
 a4<-subset(a4,a4$n_testes>3)
 
 colnames(a1)<-c('TipoTeste', 'dataTeste','resultado','estado','testes','n_testes','dataNotificacao','estado','municipio')
@@ -118,7 +17,7 @@ colnames(a2)<-c('TipoTeste', 'dataTeste','resultado','estado','testes','n_testes
 colnames(a3)<-c('TipoTeste', 'dataTeste','resultado','estado','testes','n_testes','dataNotificacao','estado','municipio')
 colnames(a4)<-c('TipoTeste', 'dataTeste','resultado','estado','testes','n_testes','dataNotificacao','estado','municipio')
 
-                a0<-subset(total,total$n_testes==0)
+a0<-subset(total,total$n_testes==0)
 total_mesmo<-NULL
 dat<-dplyr::bind_rows(a1,a2,a3,a4)
 
