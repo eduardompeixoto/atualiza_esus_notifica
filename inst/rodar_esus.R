@@ -2,7 +2,7 @@ pkgload::load_all()
 
 df_esus <- esus()
 
-save(df_esus, file="inst/planilha_esus.RData")
+write.csv2(df_esus, "inst/planilha_esus.csv")
 
 commit_message <- paste0("", Sys.time())
 
