@@ -72,10 +72,14 @@ total<-dplyr::bind_cols(tipoTeste,dataTeste,resultadoTeste,estadoTeste,dat)
 
 total$n_testes<-str_count(total$testes,"tipo")
 total<-as.data.frame(total)
-table(total$n_testes)
+a<- max(as.data.frame(table(total$n_testes))$Freq)
 
 
- # Create an empty vector to store column names
+
+# Assuming you have already defined n_testes
+n_testes <- a  # Replace with your actual number of tests
+
+# Create an empty vector to store column names
 col_names <- c()
 
 # Loop through the range of tests and generate column names
@@ -155,8 +159,7 @@ additional_cols <- c(
 total_cols <- c(col_names, additional_cols)
 
 # Set the column names for your data frame
-colnames(total) <- total_cols                 
-
+colnames(total) <- total_cols
 
 
 total$n_testes<-as.numeric(total$n_testes)
