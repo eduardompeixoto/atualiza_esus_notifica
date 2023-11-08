@@ -57,7 +57,6 @@ a<-bind_rows(data_frames)
 
 a$classificacaoFinal<-NULL
 
-a<-subset(a,is.na(a$dataTeste)| a$dataTeste > Sys.Date()-7)
 a<-distinct(a)
 a[a=="NA"]<-NA
 a$resultado[a$resultado=="Inconclusivo"]<-NA
