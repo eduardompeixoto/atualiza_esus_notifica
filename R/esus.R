@@ -84,12 +84,6 @@ a$semvacina<-a$recebeuVacina
 a$semvacina[a$recebeuVacina>=1]<-'0'
 a$semvacina[a$recebeuVacina<1]<-'1'
 
-
-r<- subset(a,select = c(dataInicioSintomas,sexo,idade,estrangeiro,profissionalSaude,racaCor,cardiopatia,obesidade,anosmia,dm,rc,drespc,gest,febre,coriza,tosse,dispneia,assintomatico,garganta,cefaleia,capital,confirmado,semvacina,recebeuVacina))
-r$raca2<-r$racaCor
-r$raca2[r$racaCor!="1"]<-"Não branca"
-r$raca2[r$racaCor=="1"]<-"Branca"
-
-r
+a
                   }
   
