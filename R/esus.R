@@ -1,7 +1,5 @@
 esus<-function(){
 # Install the necessary packages if not already installed
-setwd("C:\\Users\\eduardo.peixoto\\Desktop\\esus_tese")
-
 required_packages <- c("httr", "jsonlite", "dplyr")
 new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
 if(length(new_packages)) install.packages(new_packages)
