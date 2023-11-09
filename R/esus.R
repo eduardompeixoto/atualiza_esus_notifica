@@ -39,7 +39,7 @@ fetch_data <- function(query, url, headers) {
 }
 
 # Loop to fetch data for different date ranges
-data_frames <- lapply(1:45, function(days_back) {
+data_frames <- lapply(1:28, function(days_back) {
   query <- sprintf('{
     "size": 10000,
     "query": {
