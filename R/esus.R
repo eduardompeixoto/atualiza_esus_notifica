@@ -284,7 +284,7 @@ k<-subset(junto,junto$dt_coleta>= (Sys.Date()-30))
 junto<-k
 junto$dt_coleta<-format(junto$dt_coleta,"%d/%m/%Y")
 junto[is.na(junto)]<-0
-openxlsx::write.xlsx(junto,file = stringr::str_replace_all(paste("antigeno_",format(Sys.Date(),"%d%m%Y"),".xlsx")," ","") ,sep="",collapse="",row.names = F)
+#openxlsx::write.xlsx(junto,file = stringr::str_replace_all(paste("antigeno_",format(Sys.Date(),"%d%m%Y"),".xlsx")," ","") ,sep="",collapse="",row.names = F)
 
 dataset<-total
 dataset$testes<-NULL
@@ -482,7 +482,7 @@ colnames(a3)<-c('id','tipoTeste','dataTeste','resultado','estado','sexo','outros
 a<-rbind(a1,a2,a3)
 a$classificacaoFinal<-NULL
 
-a<-subset(a,is.na(a$dataTeste)| a$dataTeste > Sys.Date()-7)
+#a<-subset(a,is.na(a$dataTeste)| a$dataTeste > Sys.Date()-7)
 a<-distinct(a)
 a[a=="NA"]<-NA
 a$resultado[a$resultado=="Inconclusivo"]<-NA
